@@ -20,29 +20,31 @@ export class Searchbar extends Component {
 
   handleSubmit = e => { 
     e.preventDefault()
-
     if (this.state.search.trim() === '') { 
       toast.error('Type your request')
       return
     }
     this.props.onSubmit(this.state.search)
-    this.setState ({search: ''})
+    this.setState ({ search: '' })
   }
 
+  handleChangeValue = e => { 
+    this.setState({search: e.currentTarget.value.toLowerCase()})
+  }
   
   render() {
     return (
       <>
-        <SearchbarHeader className="searchbar">
+        <SearchbarHeader>
           <SearchForm onSubmit={this.handleSubmit}>
-            <SearchFormButton type="submit" className="button">
-              <SearchFormButtonLabel className="button-label">Search</SearchFormButtonLabel>
+            <SearchFormButton type="submit">
+              <SearchFormButtonLabel >Search</SearchFormButtonLabel>
             </SearchFormButton>
 
             <SearchFormInput
               name="search"
               value={this.state.search}
-              onChange={this.handleChange}
+              onChange={this.handleChangeValue}
               className="input"
               type="text"
               autoComplete="off"

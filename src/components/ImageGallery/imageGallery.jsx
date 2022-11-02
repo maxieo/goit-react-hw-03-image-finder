@@ -1,17 +1,18 @@
 import React from "react";
 import PropTypes from 'prop-types'
-import {ImageGalleryStyle} from './imageGallery.styled.js'
+import { ImageGalleryStyle } from './imageGallery.styled.js'
+import { ImageGalleryItem } from 'components/ImageGalleryItem/imageGalleryItem'
 
-export const ImageGallery = ({ images }) => { 
+export const ImageGallery = ({ results, openModal }) => { 
   return (
     <ImageGalleryStyle>
-      {
-      images.map(image => (
-        <imageGalleryItem
-          key={image.id}
-          webformatURL={image.webformatURL}
-          largeImageURL={image.largeImageURL}
-          tags={image.tags}
+      {results.map(result => (
+        <ImageGalleryItem
+          key={result.id}
+          webformatURL={result.webformatURL}
+          largeImageURL={result.largeImageURL}
+          tags={result.tags}
+          openModal={ openModal }
         />
     ))}
     </ImageGalleryStyle>
@@ -19,7 +20,7 @@ export const ImageGallery = ({ images }) => {
 }
 
 ImageGallery.propTypes = {
-  images: PropTypes.arrayOf(
+  results: PropTypes.arrayOf(
     PropTypes.exact({
       id: PropTypes.number.isRequired,
       webformatURL: PropTypes.string.isRequired,
