@@ -5,9 +5,9 @@ import {
   SearchbarHeader,
   SearchForm,
   SearchFormButton,
-  SearchFormButtonLabel,
   SearchFormInput
 } from './searchbar.styled.js'
+import {MdOutlineImageSearch} from 'react-icons/md'
 
 export class Searchbar extends Component {
   state = {
@@ -38,7 +38,9 @@ export class Searchbar extends Component {
         <SearchbarHeader>
           <SearchForm onSubmit={this.handleSubmit}>
             <SearchFormButton type="submit">
-              <SearchFormButtonLabel >Search</SearchFormButtonLabel>
+              <>
+                <MdOutlineImageSearch size='30px' color='black' />
+              </>
             </SearchFormButton>
 
             <SearchFormInput

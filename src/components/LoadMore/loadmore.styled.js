@@ -1,7 +1,13 @@
 import styled from "styled-components";
 
-
+export const ButtonDiv = styled.div`
+  display: flex;
+  justify-content: center;
+`
 export const ButtonStyle = styled.button`
+  width: 50px;
+  align-items: center;
+  justify-items: center;
   padding: 8px 16px;
   border-radius: 2px;
   background-color: #3f51b5;
