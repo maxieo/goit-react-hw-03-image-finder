@@ -76,7 +76,7 @@ export class App extends Component {
       <AppStyle>
         <Searchbar onSubmit={this.handleSearch} />
         {this.state.status === 'failed' && (
-          <MessageError message={'Sorry, this request is failed '} />
+          <MessageError message={`Sorry, this request is failed for "${this.state.search}"(((`} />
         )}
         {this.state.images.length > 0 && (
           <ImageGallery
